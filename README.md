@@ -62,7 +62,7 @@ Se puede navegar a traves del sitio usando las opciones que entrega la barra de 
 - contacto: formulario para enviar mensaje 
 - revisar mensaje: lista todos los mensajes enviados
 - ingresar datos usuarios: formulario para ingresar datos del usuario
-- lista datos de usuario:  lista de usuarios y sus datos
+- lista datos de clientes:  lista de usuarios y sus datos
 - Registrarse: registro de nuevo usuario
 - Ingresar: ingreso a la pagina
 - Salir: salida de usuario
@@ -71,12 +71,16 @@ Se puede navegar a traves del sitio usando las opciones que entrega la barra de 
 El desarrollo del codigo de backend se hizo usando la framework django en conjunto con python.
 
 Existe un superusuario creado y se agrego la opcion de registro de nuevos usuarios a traves del sitio con la opcion "Registrarse" en la barra de navegacion.
+Esta opcion permite registra usuarios por defectos del tipo activo. Para cambiar el tipo de usuario se debe hacer el cambio en la pagina admin de django a traves del superusuario.
 
 El sitio tambien permite el ingreso de usuarios ya registrados aa traves de la opcion "Ingresar". Una avez que el usuario ingresa, se despliega un mensaje de bienvenida personalizado, y el nombre aparece en la esquina superiror derecha con el tipo de usuario registrado.
 
 La opcion "Salir" permite al usuario desconectarse.
 
-Se crearon tambien 2 modelos (Usuarios y Mensajes) las que almacenas datos de usuarios y mensajes enviados. Estas clase se pueden tambien accesarse desde la barra de navegacion en la opcion "Ingresar Datos Usuario" y "Contacto". Estos ingresos se pueden visualizar desde el sitio en "Lista Datos Usuarios" y en "Revisar Mensajes"
+Se crearon tambien 3 modelos (Usuarios, Mensajes y Productos) las que almacenas datos de usuarios y mensajes enviados. Estas clase se pueden tambien accesarse desde la barra de navegacion en la opcion "Ingresar Datos Usuario" y "Contacto". Estos ingresos se pueden visualizar desde el sitio en "Lista Datos Usuarios" y en "Revisar Mensajes". El modelo Producto aun se encuentra sin registros, pero la idea es tener un listado de productos, su descripcion y su precio. Se crearon 2 Grupos de Usuarios: Grupo MKTG (con permiso para agregar, elminar, canbiar y ver mensajes y usuarios) y GrupoOperaciones(con permiso para agregar, elminar, canbiar y ver productos). Los usuario "activos" podrian ser los clientes en caso de que se requiera algun tipo de autentificacion al ingreso.
+
+![image](https://user-images.githubusercontent.com/99301347/166174461-804fc437-68f5-41d7-bd4e-a48d717ad469.png)
+
 
 El sitio presenta tambien 3 restricciones: Las opciones "Revisar Mensajes", "Ingresar Datos Usuarios" y "Lista Datos Usuarios" tiene restricciones de acceso, por lo que el usuario debe havbe ingresado antes de poder revisar estas opciones. Las restricciones se hicieron usando el decorador @login_required
 
